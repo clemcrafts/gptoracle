@@ -1,5 +1,5 @@
 
-# Project Title
+# GPTOracle
 
 A LLM-based automation tool for content creation.
 
