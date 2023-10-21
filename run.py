@@ -6,7 +6,7 @@ def run():
     Run the article creation.
     """
     article = Article()
-    article.create_article()
+    print(article.create_article())
 
 
 if __name__ == '__main__':
