@@ -5,6 +5,7 @@ import base64
 from dotenv import load_dotenv
 import os
 from datetime import datetime
+from src.scenarios.best_coins import BEST_COINS_SCENARIO
 
 
 class Article:
@@ -91,7 +92,11 @@ class Article:
         """
         Sets the post's content attribute by fetching a response from ChatGPT.
         """
-        self.post['content'] = self.get_chatgpt_response(self.title)
+        for prompt in BEST_COINS_SCENARIO:
+            try:
+                self.post['content'] += self.get_chatgpt_response(prompt)
+            except KeyError:
+                self.post['content'] = self.get_chatgpt_response(prompt)
 
     def create_article(self):
         """
